@@ -1,3 +1,11 @@
+
+// Use Google & Cloudflare DNS in development to avoid local SRV DNS resolution issues.deployment m hatt sakta h
+import dns from 'node:dns';
+
+if (process.env.NODE_ENV !== 'production') {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+}
+
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
